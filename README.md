@@ -63,3 +63,5 @@ const gifs = [
     "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXRscXd2MGlwYzB0dnF3ZWd0M3l5cmllNXUzb29xYmsycmw2M2FxZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/hNl8qML3A5BHZAk84y/giphy.gif",
     // Add more GIF URLs here
 ];
+
+🚨🚨🚨 This README is made by chatgpt, there may be inconsistencies 🚨🚨🚨
