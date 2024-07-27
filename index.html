@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haii :3</title>
+    <link rel="icon" type="image/gif" href="https://cdn.7tv.app/emote/629fa7bb2b24f7ba48b6e6c4/4x.gif">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 5%;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5em;
+            margin: 10px;
+            display: inline-block;
+        }
+        a:hover {
+            color: #00aced;
+        }
+        img {
+            width: 200px;
+            height: auto;
+        }
+        button {
+            margin-top: 50px;
+            padding: 10px 20px;
+            font-size: 1.5em;
+            color: white;
+            background-color: purple;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #6a0dad;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            const gifs = [
+                "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXRscXd2MGlwYzB0dnF3ZWd0M3l5cmllNXUzb29xYmsycmw2M2FxZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/hNl8qML3A5BHZAk84y/giphy.gif",
+                "https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif",
+                "https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif",
+                "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3VxZnkyMTg2NWgzYWU0emR3eG8weXF3Yzl6dnozMnEweHVwMXdqbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nR4L10XlJcSeQ/giphy.gif",
+                "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjRrNzRrejN3emh4a3YycXhkNTBiOXV1cXgwaXRwb21raDg3cTc4aiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/tBxyh2hbwMiqc/giphy.gif",
+                "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWR1MTBkc2N1MzVrOXBtZzZvdDFiaWlncTBqdXJ0aWhpcThxcWtwOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6uMqzcbWRhoT6/giphy.gif",
+                "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGJybWZrZzNkZDVnYW5xOGIyaTM3dzF4MnRtMWNjaWRpZXIzMTB2MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xm5YjLg8BAUqzncilb/giphy.gif",
+                "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExODVxZjVlMXN6aHlzM3MzNzdianB4N3UyaDFqcTk2bXg1ZjdpYWIxZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Sm9AfJRiZofjlrkAAl/giphy.gif",
+                "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2RkejM2OWYydHl1ODJjMjhoamFyd2d0azZmYnZwaWJpNTZtZWRucSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WWyT3VgEgIK8U/giphy.gif",
+                "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnUxeXBzM25tMHc2MGt1Y2h5Nmp4OXV4Z2xvZzRjNzFqeDg3Ym45eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/14d8Aj81ffgnQY/giphy.gif",
+                "https://media.giphy.com/media/v6aOjy0Qo1fIA/giphy.gif"
+            ];
+            const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
+            document.getElementById('randomCatGif').src = randomGif;
+        }
+
+        let counter = 0;
+        function incrementCounter() {
+            counter++;
+            document.getElementById('counterButton').innerText = 'Clicks: ' + counter;
+            if (counter === 69) {
+                window.open("https://www.youtube.com/watch?v=ozhHrzOXZkI", "_blank");
+            }
+        }
+    </script>
+</head>
+<body>
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+        <img id="randomCatGif" src="" alt="Random Cat GIF">
+    </a>
+    <h1>Hi, I'm Simon</h1>
+    <a href="https://x.com/girlpizz" target="_blank">Twitter</a><br>
+    <a href="https://github.com/UwUslee" target="_blank">GitHub</a><br>
+    <button id="counterButton" onclick="incrementCounter()">Click here for a surprise: 0</button>
+</body>
+</html>
