@@ -1,6 +1,7 @@
-# Personal Webpage - Simon's Site
+# Personal Webpage - Simon's Site  
 
-Welcome to my personal webpage repository! This site is a fun and interactive way to showcase my online presence and interests. Below you'll find all the information you need to understand, run, and contribute to this project.
+Welcome to my personal webpage repository! This site is a fun and interactive way to showcase my online presence and interests. Below you'll find all the information you need to understand, run, and contribute to this project. 
+🚨This README is made by chatgpt, there may be inconsistencies🚨
 
 ## Features
 
