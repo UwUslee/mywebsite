@@ -2,6 +2,12 @@
 
 Welcome to my personal webpage repository! This site is a fun and interactive way to showcase my online presence and interests. Below you'll find all the information you need to understand, run, and contribute to this project. 
 
+  ______     __     _          __          __ 
+ / ___(_)___/ /__  (_)__ ___  / /____ ____/ / 
+/ (_ / / __/ / _ \/ (_-<(_-<_/ __/ -_) __/ _ \
+\___/_/_/ /_/ .__/_/___/___(_)__/\__/\__/_//_/
+           /_/                                
+
 
 ## Features
 
