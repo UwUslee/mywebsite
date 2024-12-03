@@ -51,7 +51,31 @@
             height: auto; /* Maintain aspect ratio */
         }
         .spotify-indicator {
-            width: 180px; /* Larger size for Spotify */
+            width: 150px; /* Larger size for Spotify */
+        }
+
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
+            /* Stack status indicators on mobile */
+            .status-container {
+                flex-direction: column; /* Stack indicators vertically */
+                gap: 15px; /* Space between stacked indicators */
+            }
+
+            /* Make indicators smaller on mobile */
+            .status-indicator {
+                width: 100px; /* Smaller size */
+            }
+
+            .spotify-indicator {
+                width: 120px; /* Smaller size for Spotify */
+            }
+
+            /* Make the counter button smaller on mobile */
+            button {
+                padding: 6px 12px; /* Smaller button */
+                font-size: 1em; /* Smaller font */
+            }
         }
     </style>
     <script>
