@@ -48,16 +48,12 @@ Make sure you have a web browser and an internet connection.
 
 - **Counter Button**: Click the button to increase the counter. After 69 clicks, a special surprise will appear.
 - **Social Links**: Click on the links to visit my social media profiles.
-- **Status Indicators**: View your current status from different services like Spotify and VSCode.
-
-## Customization
-
-Feel free to customize the website to your liking. You can change the styles, or add new features.
-
-### Changing the Status Indicators
-
-To update or add new status indicators, refer to the [StatusBadges site](https://statusbadges.me/), which is powered by Advaith. You can create your own badges there!
+- **Status Indicators**: View my current status from different services like Spotify and VSCode.
 
 ## Credits
 
 - **Status Indicators**: The status indicators used on this site are powered by [StatusBadges.me](https://statusbadges.me/) and created by [Advaith](https://advaith.io).
+
+## Disclaimer
+
+🚨 This readme was created with the assistance of ChatGPT. There may be inconsistencies.
