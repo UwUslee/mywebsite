@@ -28,9 +28,9 @@
             height: auto;
         }
         button {
-            margin-top: 50px;
-            padding: 10px 20px;
-            font-size: 1.5em;
+            margin-top: 30px;
+            padding: 8px 16px; /* Smaller size */
+            font-size: 1.2em; /* Adjust font size */
             color: white;
             background-color: purple;
             border: none;
@@ -40,28 +40,30 @@
         button:hover {
             background-color: #6a0dad;
         }
+        .status-indicator {
+            width: 100px; /* Resize width */
+            height: auto; /* Maintain aspect ratio */
+            margin-top: 20px; /* Add spacing */
+        }
     </style>
     <script>
-        
         let counter = 0;
         function incrementCounter() {
             counter++;
             document.getElementById('counterButton').innerText = 'Clicks: ' + counter;
             if (counter === 69) {
-                window.open("https://www.youtube.com/watch?v=ozhHrzOXZkI"
+                window.open("https://www.youtube.com/watch?v=ozhHrzOXZkI", "_blank");
             }
         }
     </script>
 </head>
 <body>
-    </a>
     <h1>Hi, I'm Simon</h1>
+    <img src="https://api.statusbadges.me/badge/status/598134897265082398" alt="status" class="status-indicator">
+    <br>
     <a href="https://x.com/girlpizz" target="_blank">Twitter</a><br>
     <a href="https://stats.fm/girlpiss" target="_blank">Stats.fm</a><br>
     <a href="https://github.com/UwUslee" target="_blank">GitHub</a><br>
     <button id="counterButton" onclick="incrementCounter()">Click here for a surprise: 0</button>
-    <br>
-    <br>
-    <img src="https://api.statusbadges.me/badge/status/598134897265082398" alt="status">
 </body>
-</
+</html>
