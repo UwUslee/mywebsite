@@ -2,22 +2,29 @@
 
 Welcome to my personal webpage repository! This site is a fun and interactive way to showcase my online presence and interests. Below you'll find all the information you need to understand, run, and contribute to this project. 
 
+---
 
 ## Features
 
-- **Random Cat GIF**: A random cat GIF is displayed every time the page is loaded.
 - **Counter Button**: A button that counts clicks and opens a surprise link after 69 clicks.
+- **Status Indicator**: Displays a badge under the introduction text, reflecting a custom status.
 - **Links**: Quick links to my social media profiles and GitHub.
+
+---
 
 ## Demo
 
-You can visit the site [here](girlpiss.tech).
+You can visit the site [here](https://girlpiss.tech).
+
+---
 
 ## Technologies Used
 
-- HTML5
-- CSS3
-- JavaScript
+- **HTML5**
+- **CSS3**
+- **JavaScript**
+
+---
 
 ## Getting Started
 
@@ -39,30 +46,29 @@ Make sure you have a web browser and an internet connection.
     cd personal-webpage
     ```
 
-3. Open `index.html` in your preferred web browser.
+3. Open `index.html` in your preferred web browser:
 
     ```sh
     open index.html
     ```
 
+---
+
 ## Usage
 
-- **Random Cat GIF**: A new cat GIF will appear each time you refresh the page.
 - **Counter Button**: Click the button to increase the counter. After 69 clicks, a special surprise will appear.
+- **Status Indicator**: Displays a status badge directly below the introduction text.
 - **Social Links**: Click on the links to visit my social media profiles.
+
+---
 
 ## Customization
 
-Feel free to customize the website to your liking. You can change the GIF URLs, modify the styles, or add new features.
+Feel free to customize the website to your liking. You can modify the styles, update the status badge, or add new features.
 
-### Changing the GIFs
+---
 
-To update the list of cat GIFs, edit the array in the `window.onload` function in the `index.html` file:
+### 🚨 Note:  
+This README was generated with assistance from ChatGPT. Please ensure all information is accurate and reflects your intentions for the project.
 
-```javascript
-const gifs = [
-    "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXRscXd2MGlwYzB0dnF3ZWd0M3l5cmllNXUzb29xYmsycmw2M2FxZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/hNl8qML3A5BHZAk84y/giphy.gif",
-    // Add more GIF URLs here
-];
-
-#### 🚨🚨🚨 This README is made by chatgpt, there may be inconsistencies 🚨🚨🚨
+---
