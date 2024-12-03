@@ -24,8 +24,9 @@
             color: #7100db;
         }
         img {
-            width: 200px;
-            height: auto;
+            width: 100px; /* Resize width */
+            height: auto; /* Maintain aspect ratio */
+            margin-top: 10px; /* Reduced spacing */
         }
         button {
             margin-top: 30px;
@@ -43,7 +44,7 @@
         .status-indicator {
             width: 100px; /* Resize width */
             height: auto; /* Maintain aspect ratio */
-            margin-top: 20px; /* Add spacing */
+            margin-top: 10px; /* Reduced spacing */
         }
     </style>
     <script>
@@ -60,6 +61,12 @@
 <body>
     <h1>Hi, I'm Simon</h1>
     <img src="https://api.statusbadges.me/badge/status/598134897265082398" alt="status" class="status-indicator">
+    <br>
+    <a href="https://api.statusbadges.me/openspotify/598134897265082398" target="_blank" rel="noopener">
+        <img src="https://api.statusbadges.me/badge/spotify/598134897265082398" alt="spotify" class="status-indicator">
+    </a>
+    <br>
+    <img src="https://api.statusbadges.me/badge/vscode/598134897265082398" alt="vscode" class="status-indicator">
     <br>
     <a href="https://x.com/girlpizz" target="_blank">Twitter</a><br>
     <a href="https://stats.fm/girlpiss" target="_blank">Stats.fm</a><br>
