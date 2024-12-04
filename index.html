@@ -16,11 +16,27 @@
         }
         .top-half {
             height: 50%;
-            background: url('https://images.unsplash.com/photo-1618085579752-d666c8ad12b6?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center;
+            background: url('/mnt/data/4D85EE61-6C51-42A0-AC16-716540621FE5.jpeg') no-repeat center center;
             background-size: cover;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+        }
+        .social-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .social-links a {
+            display: inline-block;
+            color: white;
+            font-size: 1.2rem;
+            margin: 5px 15px;
+            text-decoration: none;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        .social-links a:hover {
+            color: #7100db;
         }
         .bottom-half {
             height: 50%;
@@ -33,26 +49,24 @@
         h1 {
             font-size: 3rem;
             font-weight: 900;
-            background: linear-gradient(90deg, black, #301934); /* Black to very dark purple */
+            background: linear-gradient(90deg, black, #301934);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        }
-        a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.5em;
-            margin: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        }
-        a:hover {
-            color: #7100db;
         }
     </style>
 </head>
 <body>
     <div class="top-half">
         <h1>Hi, I'm Simon</h1>
+        <div class="social-links">
+            <a href="https://github.com/UwUslee" target="_blank">GitHub</a>
+            <a href="https://x.com/girlpizz" target="_blank">Twitter</a>
+            <a href="https://stats.fm/girlpiss" target="_blank">Stats.fm</a>
+            <a href="https://discord.com/" target="_blank">Discord</a>
+            <a href="https://reddit.com/" target="_blank">Reddit</a>
+            <a href="mailto:example@domain.com">Email</a>
+        </div>
     </div>
     <div class="bottom-half">
         <a href="https://x.com/girlpizz" target="_blank">Twitter</a><br>
