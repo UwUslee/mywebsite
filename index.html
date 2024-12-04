@@ -7,76 +7,57 @@
     <link rel="icon" type="image/gif" href="https://cdn.7tv.app/emote/629fa7bb2b24f7ba48b6e6c4/4x.gif">
     <style>
         body {
-            background: rgb(2,0,36);
-            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(16,16,134,1) 35%, rgba(45,50,51,1) 100%);
-            color: white;
+            margin: 0;
+            padding: 0;
             font-family: Arial, sans-serif;
-            text-align: center;
-            padding-top: 5%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .top-half {
+            height: 50%;
+            background: url('/mnt/data/4D85EE61-6C51-42A0-AC16-716540621FE5.jpeg') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .bottom-half {
+            height: 50%;
+            background: rgb(32,34,37);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
         }
         h1 {
             font-size: 3rem;
-            font-weight: 900; /* Bold and thick */
-            background: linear-gradient(90deg, purple, blue); /* Gradient in purple to blue */
-            -webkit-background-clip: text; /* Clip background to text */
-            -webkit-text-fill-color: transparent; /* Make text fill transparent to show gradient */
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Optional text shadow for depth */
+            font-weight: 900;
+            background: linear-gradient(90deg, black, #301934); /* Black to very dark purple */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         }
         a {
             color: white;
             text-decoration: none;
             font-size: 1.5em;
             margin: 10px;
-            display: inline-block;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Added text-shadow */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
         a:hover {
             color: #7100db;
         }
-        img {
-            height: auto;
-            margin-top: 10px;
-        }
-        button {
-            margin-top: 30px;
-            padding: 8px 16px;
-            font-size: 1.2em;
-            color: white;
-            background-color: purple;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #6a0dad;
-        }
     </style>
-    <script>
-        let counter = 0;
-        function incrementCounter() {
-            counter++;
-            document.getElementById('counterButton').innerText = 'Clicks: ' + counter;
-            if (counter === 69) {
-                window.open("https://www.youtube.com/watch?v=ozhHrzOXZkI", "_blank");
-            }
-        }
-    </script>
 </head>
 <body>
-    <h1>Hi, I'm Simon</h1>
-    
-    <div class="status-container">
-        <img src="https://api.statusbadges.me/badge/status/598134897265082398" alt="status" class="status-indicator">
-        <a href="https://api.statusbadges.me/openspotify/598134897265082398" target="_blank" rel="noopener">
-            <img src="https://api.statusbadges.me/badge/spotify/598134897265082398" alt="spotify" class="status-indicator spotify-indicator">
-        </a>
-        <img src="https://api.statusbadges.me/badge/vscode/598134897265082398" alt="vscode" class="status-indicator">
+    <div class="top-half">
+        <h1>Hi, I'm Simon</h1>
     </div>
-
-    <br>
-    <a href="https://x.com/girlpizz" target="_blank">Twitter</a><br>
-    <a href="https://stats.fm/girlpiss" target="_blank">Stats.fm</a><br>
-    <a href="https://github.com/UwUslee" target="_blank">GitHub</a><br>
-    <button id="counterButton" onclick="incrementCounter()">Click here for a surprise: 0</button>
+    <div class="bottom-half">
+        <a href="https://x.com/girlpizz" target="_blank">Twitter</a><br>
+        <a href="https://stats.fm/girlpiss" target="_blank">Stats.fm</a><br>
+        <a href="https://github.com/UwUslee" target="_blank">GitHub</a>
+    </div>
 </body>
 </html>
