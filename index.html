@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>girlpiss.tech</title>
     <link rel="icon" type="image/gif" href="https://cdn.7tv.app/emote/629fa7bb2b24f7ba48b6e6c4/4x.gif">
-    <!-- Font Awesome for Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         body {
@@ -18,7 +17,7 @@
         }
         .top-half {
             height: 50%;
-            background: url('/mnt/data/4D85EE61-6C51-42A0-AC16-716540621FE5.jpeg') no-repeat center center;
+            background: url('https://images.unsplash.com/photo-1618085579752-d666c8ad12b6?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center;
             background-size: cover;
             display: flex;
             flex-direction: column;
@@ -32,9 +31,9 @@
         .social-links a {
             display: inline-block;
             color: white;
-            font-size: 1.2rem;
+            font-size: 1rem;
             margin: 5px 15px;
-            padding: 10px 20px;
+            padding: 8px 16px;
             border-radius: 5px;
             text-decoration: none;
             box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
@@ -76,16 +75,33 @@
         h1 {
             font-size: 3rem;
             font-weight: 900;
-            background: linear-gradient(90deg, black, #00008b); /* Gradient from black to dark blue */
+            background: linear-gradient(90deg, black, #1e3a8a); /* Gradient from black to light blue */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        .status-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .status-indicator {
+            margin: 0 10px;
+            height: 30px;
+            width: auto;
         }
     </style>
 </head>
 <body>
     <div class="top-half">
         <h1>Hi, I'm Simon</h1>
+        <div class="status-container">
+            <img src="https://api.statusbadges.me/badge/status/598134897265082398" alt="status" class="status-indicator">
+            <a href="https://api.statusbadges.me/openspotify/598134897265082398" target="_blank" rel="noopener">
+                <img src="https://api.statusbadges.me/badge/spotify/598134897265082398" alt="spotify" class="status-indicator">
+            </a>
+            <img src="https://api.statusbadges.me/badge/vscode/598134897265082398" alt="vscode" class="status-indicator">
+        </div>
         <div class="social-links">
             <a href="https://github.com/UwUslee" target="_blank" class="github"><i class="fab fa-github"></i>GitHub</a>
             <a href="https://x.com/girlpizz" target="_blank" class="twitter"><i class="fab fa-twitter"></i>Twitter</a>
@@ -96,7 +112,6 @@
         </div>
     </div>
     <div class="bottom-half">
-        <!-- Bottom half content -->
     </div>
 </body>
 </html>
