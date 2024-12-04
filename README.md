@@ -1,6 +1,6 @@
 ## Link
 
-girlpiss.com
+[girlpiss.tech](https://girlpiss.tech)
 
 ## Credits
 
