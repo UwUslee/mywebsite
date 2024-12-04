@@ -75,36 +75,19 @@
             padding: 20px;
         }
         h1 {
-            font-size: 3rem;
+            font-size: 4.0rem;
             font-weight: 900;
             background: linear-gradient(90deg, #006400, #1e3a8a);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         }
-        .status-container {
-            margin-top: 10px;
-            display: flex;
-            justify-content: center;
-        }
-        .status-indicator {
-            margin: 0 10px;
-            height: 20px;
-            width: auto;
-        }
         .script-text {
             font-size: 1.2rem;
             color: white;
             font-family: 'Playfair Display', serif;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 1s, transform 1s;
             max-width: 800px;
             line-height: 1.5;
-        }
-        .fade-in {
-            opacity: 1;
-            transform: translateY(0);
         }
     </style>
 </head>
@@ -122,25 +105,24 @@
             <a href="https://github.com/UwUslee" target="_blank" class="github"><i class="fab fa-github"></i>GitHub</a>
             <a href="https://x.com/girlpizz" target="_blank" class="twitter"><i class="fab fa-twitter"></i>Twitter</a>
             <a href="https://stats.fm/girlpiss" target="_blank" class="statsfm"><i class="fas fa-chart-line"></i>Stats.fm</a>
-            <a href="https://discord.com/" target="_blank" class="discord"><i class="fab fa-discord"></i>Discord</a>
+            <a href="javascript:void(0);" class="discord" onclick="copyDiscord()"><i class="fab fa-discord"></i>Discord</a>
             <a href="https://reddit.com/" target="_blank" class="reddit"><i class="fab fa-reddit"></i>Reddit</a>
             <a href="mailto:example@domain.com" class="email"><i class="fas fa-envelope"></i>Email</a>
         </div>
     </div>
     <div class="bottom-half">
-        <div id="shrek-script" class="script-text">
+        <div class="script-text">
             "It’s not easy being green. You blend in with so many other things. You’re just a big, ugly, green... thing." - Shrek, 2001
         </div>
     </div>
 
     <script>
-        window.addEventListener('scroll', () => {
-            const scriptText = document.getElementById('shrek-script');
-            const rect = scriptText.getBoundingClientRect();
-            if (rect.top <= window.innerHeight * 0.8) {
-                scriptText.classList.add('fade-in');
-            }
-        });
+        function copyDiscord() {
+            const discordText = "sleemon";
+            navigator.clipboard.writeText(discordText)
+                .then(() => alert('Discord username copied to clipboard!'))
+                .catch(err => alert('Failed to copy Discord username: ' + err));
+        }
     </script>
 </body>
 </html>
