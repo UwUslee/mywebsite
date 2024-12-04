@@ -41,25 +41,25 @@
             transition: background-color 0.3s;
         }
         .social-links a:hover {
-            background-color: #00008b; /* Dark blue on hover */
+            background-color: #00008b;
         }
         .social-links .github {
-            background-color: #333; /* GitHub black */
+            background-color: #333;
         }
         .social-links .twitter {
-            background-color: #1da1f2; /* Twitter blue */
+            background-color: #1da1f2;
         }
         .social-links .statsfm {
-            background-color: #28a745; /* Stats.fm green */
+            background-color: #28a745;
         }
         .social-links .discord {
-            background-color: #7289da; /* Discord blue */
+            background-color: #7289da;
         }
         .social-links .reddit {
-            background-color: #ff4500; /* Reddit orange */
+            background-color: #ff4500;
         }
         .social-links .email {
-            background-color: #d44638; /* Email red */
+            background-color: #d44638;
         }
         .social-links i {
             margin-right: 8px;
@@ -71,11 +71,12 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
+            padding: 20px;
         }
         h1 {
             font-size: 3rem;
             font-weight: 900;
-            background: linear-gradient(90deg, black, #1e3a8a); /* Gradient from black to light blue */
+            background: linear-gradient(90deg, #006400, #7fffd4);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
@@ -87,8 +88,21 @@
         }
         .status-indicator {
             margin: 0 10px;
-            height: 20px; /* Smaller size for the status indicators */
+            height: 20px;
             width: auto;
+        }
+        .script-text {
+            font-size: 1.2rem;
+            color: white;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s, transform 1s;
+            max-width: 800px;
+            line-height: 1.5;
+        }
+        .fade-in {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -112,6 +126,20 @@
         </div>
     </div>
     <div class="bottom-half">
+        <div id="shrek-script" class="script-text">
+            "It’s not easy being green. You blend in with so many other things. You’re just a big, ugly, green... thing." - Shrek, 2001
+        </div>
     </div>
+
+    <script>
+        // Function to add fade-in effect when scrolled
+        window.addEventListener('scroll', () => {
+            const scriptText = document.getElementById('shrek-script');
+            const rect = scriptText.getBoundingClientRect();
+            if (rect.top <= window.innerHeight * 0.8) {  // Trigger when the element is in view
+                scriptText.classList.add('fade-in');
+            }
+        });
+    </script>
 </body>
 </html>
