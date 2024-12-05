@@ -4,20 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>girlpiss.tech</title>
+    
+    <!-- Favicon and External Resources -->
     <link rel="icon" type="image/gif" href="https://cdn.7tv.app/emote/629fa7bb2b24f7ba48b6e6c4/4x.gif">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display&display=swap" rel="stylesheet">
+    
     <style>
+        /* Base Styles */
         body {
             margin: 0;
             padding: 0;
             font-family: 'Roboto', sans-serif;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
+
+        /* Layout Sections */
         .top-half {
-            height: 60%;
+            min-height: 50vh;
             background: url('https://images.unsplash.com/photo-1618085579752-d666c8ad12b6?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center;
             background-size: cover;
             display: flex;
@@ -25,10 +31,75 @@
             align-items: center;
             justify-content: center;
         }
+
+        .bottom-half {
+            min-height: 40vh;
+            background: rgb(32,34,37);
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-direction: column;
+            padding: 40px;
+            flex-grow: 1;
+        }
+
+        /* Gradient Animation */
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 4.0rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, #7FFFD4, #008080, #7FFFD4);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            animation: gradient 5s ease infinite;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        .projects-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, #7FFFD4, #008080, #7FFFD4);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 5s ease infinite;
+        }
+
+        /* Status Container */
+        .status-container {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .status-indicator {
+            transition: all 0.3s ease;
+            transform: translateY(0);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+        }
+
+        .status-indicator:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Social Links */
         .social-links {
             margin-top: 20px;
             text-align: center;
         }
+
         .social-links a {
             display: inline-block;
             color: white;
@@ -37,63 +108,76 @@
             padding: 8px 16px;
             border-radius: 5px;
             text-decoration: none;
-            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
             text-align: center;
-            transition: background-color 0.3s;
+            transition: all 0.3s ease;
+            transform: translateY(0);
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
+
         .social-links a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
             background-color: #00008b;
         }
-        .social-links .github {
-            background-color: #333;
-        }
-        .social-links .twitter {
-            background-color: #1da1f2;
-        }
-        .social-links .statsfm {
-            background-color: #28a745;
-        }
-        .social-links .discord {
-            background-color: #7289da;
-        }
-        .social-links .reddit {
-            background-color: #ff4500;
-        }
-        .social-links .email {
-            background-color: #d44638;
-        }
+
         .social-links i {
             margin-right: 8px;
         }
-        .bottom-half {
-            height: 40%;
-            background: rgb(32,34,37);
+
+        /* Social Link Colors */
+        .social-links .github { background-color: #333; }
+        .social-links .twitter { background-color: #1da1f2; }
+        .social-links .statsfm { background-color: #28a745; }
+        .social-links .discord { background-color: #7289da; }
+        .social-links .email { background-color: #d44638; }
+
+        /* Project Boxes */
+        .projects-row {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            padding: 20px;
+            flex-direction: row;
+            flex-wrap: wrap;
         }
-        h1 {
-            font-size: 4.0rem;
-            font-weight: 900;
-            background: linear-gradient(90deg, #006400, #1e3a8a);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        }
-        .script-text {
-            font-size: 1.2rem;
+
+        .project-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px 30px;
+            border-radius: 12px;
+            margin: 20px 20px 20px 0;
             color: white;
-            font-family: 'Playfair Display', serif;
-            max-width: 800px;
-            line-height: 1.5;
+            font-size: 1.5rem;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            width: 300px;
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            text-decoration: none;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            transform: translateY(0);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-box.website {
+            background: #3B9FDC;
         }
     </style>
 </head>
 <body>
+    <!-- Top Section -->
     <div class="top-half">
         <h1>Hi, I'm Simon</h1>
+        
+        <!-- Status Badges -->
         <div class="status-container">
             <img src="https://api.statusbadges.me/badge/status/598134897265082398" alt="status" class="status-indicator">
             <a href="https://api.statusbadges.me/openspotify/598134897265082398" target="_blank" rel="noopener">
@@ -101,28 +185,24 @@
             </a>
             <img src="https://api.statusbadges.me/badge/vscode/598134897265082398" alt="vscode" class="status-indicator">
         </div>
+
+        <!-- Social Links -->
         <div class="social-links">
             <a href="https://github.com/UwUslee" target="_blank" class="github"><i class="fab fa-github"></i>GitHub</a>
             <a href="https://x.com/girlpizz" target="_blank" class="twitter"><i class="fab fa-twitter"></i>Twitter</a>
             <a href="https://stats.fm/girlpiss" target="_blank" class="statsfm"><i class="fas fa-chart-line"></i>Stats.fm</a>
-            <a href="javascript:void(0);" class="discord" onclick="copyDiscord()"><i class="fab fa-discord"></i>Discord</a>
-            <a href="https://reddit.com/" target="_blank" class="reddit"><i class="fab fa-reddit"></i>Reddit</a>
+            <a href="https://discord.com/users/598134897265082398" target="_blank" class="discord"><i class="fab fa-discord"></i>Discord</a>
             <a href="mailto:example@domain.com" class="email"><i class="fas fa-envelope"></i>Email</a>
         </div>
     </div>
+
+    <!-- Bottom Section -->
     <div class="bottom-half">
-        <div class="script-text">
-            "It’s not easy being green. You blend in with so many other things. You’re just a big, ugly, green... thing." - Shrek, 2001
+        <h1 class="projects-title">Projects:</h1>
+        <div class="projects-row">
+            <a href="https://github.com/UwUslee/mywebsite" target="_blank" class="project-box website">This Website</a>
+            <div class="project-box">Coming Soon</div>
         </div>
     </div>
-
-    <script>
-        function copyDiscord() {
-            const discordText = "sleemon";
-            navigator.clipboard.writeText(discordText)
-                .then(() => alert('Discord username copied to clipboard!'))
-                .catch(err => alert('Failed to copy Discord username: ' + err));
-        }
-    </script>
 </body>
 </html>
