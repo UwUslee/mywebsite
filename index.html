@@ -6,11 +6,42 @@
     <title>girlpiss.tech</title>
     
     <!-- Favicon and External Resources -->
-    <link rel="icon" type="image/gif" href="https://cdn.7tv.app/emote/629fa7bb2b24f7ba48b6e6c4/4x.gif">
+    <link rel="icon" type="image/gif" href="assets/images/icons/favicon.gif">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display&display=swap" rel="stylesheet">
     
     <style>
+        /* Add these new styles at the beginning of your style section */
+        :root {
+            --bg-color: rgb(32,34,37);
+            --text-color: white;
+        }
+
+        [data-theme="light"] {
+            --bg-color: #f0f0f0;
+            --text-color: #333;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1000;
+            padding: 10px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
         /* Base Styles */
         body {
             margin: 0;
@@ -24,7 +55,7 @@
         /* Layout Sections */
         .top-half {
             min-height: 50vh;
-            background: url('https://images.unsplash.com/photo-1618085579752-d666c8ad12b6?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center;
+            background: url('assets/images/background/hero-bg.jpg') no-repeat center center;
             background-size: cover;
             display: flex;
             flex-direction: column;
@@ -34,13 +65,14 @@
 
         .bottom-half {
             min-height: 40vh;
-            background: rgb(32,34,37);
+            background: var(--bg-color);
             display: flex;
             align-items: flex-start;
             justify-content: flex-start;
             flex-direction: column;
             padding: 40px;
             flex-grow: 1;
+            color: var(--text-color);
         }
 
         /* Gradient Animation */
@@ -143,7 +175,7 @@
             padding: 25px 30px;
             border-radius: 12px;
             margin: 20px 20px 20px 0;
-            color: white;
+            color: var(--text-color);
             font-size: 1.5rem;
             font-family: 'Roboto', sans-serif;
             font-weight: 500;
@@ -173,6 +205,11 @@
     </style>
 </head>
 <body>
+    <!-- Add this button right after the body tag -->
+    <button class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-moon"></i>
+    </button>
+
     <!-- Top Section -->
     <div class="top-half">
         <h1>Hi, I'm Simon</h1>
@@ -204,5 +241,21 @@
             <div class="project-box">Coming Soon</div>
         </div>
     </div>
+
+    <!-- Add this script right before the closing body tag -->
+    <script>
+        function toggleTheme() {
+            const body = document.documentElement;
+            const icon = document.querySelector('.theme-toggle i');
+            
+            if (body.getAttribute('data-theme') === 'light') {
+                body.removeAttribute('data-theme');
+                icon.className = 'fas fa-moon';
+            } else {
+                body.setAttribute('data-theme', 'light');
+                icon.className = 'fas fa-sun';
+            }
+        }
+    </script>
 </body>
 </html>
