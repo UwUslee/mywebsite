@@ -6,40 +6,23 @@
     <title>girlpiss.tech</title>
     
     <!-- Favicon and External Resources -->
-    <link rel="icon" type="image/gif" href="https://cdn.7tv.app/emote/629fa7bb2b24f7ba48b6e6c4/4x.gif">
+    <link rel="icon" type="image/gif" href="assets/images/icons/favicon.gif">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display&display=swap" rel="stylesheet">
     
     <style>
-        /* Add these new styles at the beginning of your style section */
+        /* Theme Variables */
         :root {
-            --bg-color: rgb(32,34,37);
+            --bg-color: rgb(32, 34, 37);
             --text-color: white;
+            --shadow-color: rgba(0, 0, 0, 0.2);
+            --hover-shadow: rgba(0, 0, 0, 0.3);
+            --gradient: linear-gradient(90deg, #494bcf, #8700d4, #494bcf);
         }
 
         [data-theme="light"] {
             --bg-color: #f0f0f0;
             --text-color: #333;
-        }
-
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
-            color: var(--text-color);
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 1000;
-            padding: 10px;
-            border-radius: 50%;
-            background-color: rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease;
-        }
-
-        .theme-toggle:hover {
-            background-color: rgba(0, 0, 0, 0.3);
         }
 
         /* Base Styles */
@@ -50,13 +33,40 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            background-image: url('https://i.imgur.com/7xWzJdO.jpeg');
+            background-size: cover;
+            background-position: center 15%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        [data-theme="light"] body {
+            background-image: url('https://i.imgur.com/gTfej4F.jpeg');
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--shadow-color);
+            border: none;
+            color: var(--text-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1000;
+            padding: 10px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--hover-shadow);
         }
 
         /* Layout Sections */
         .top-half {
             min-height: 50vh;
-            background: url('https://images.unsplash.com/photo-1618085579752-d666c8ad12b6') no-repeat center center;
-            background-size: cover;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -75,36 +85,20 @@
             color: var(--text-color);
         }
 
-        /* Gradient Animation */
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
         /* Typography */
-        h1 {
+        h1, .projects-title {
             font-size: 4.0rem;
             font-weight: 900;
-            background: linear-gradient(90deg, #7FFFD4, #008080, #7FFFD4);
+            background: var(--gradient);
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
             animation: gradient 5s ease infinite;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         }
 
         .projects-title {
             font-size: 2.8rem;
-            font-weight: 900;
-            background: linear-gradient(90deg, #7FFFD4, #008080, #7FFFD4);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradient 5s ease infinite;
         }
 
         /* Status Container */
@@ -115,15 +109,14 @@
         }
 
         .status-indicator {
-            transition: all 0.3s ease;
-            transform: translateY(0);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px var(--shadow-color);
             border-radius: 4px;
         }
 
         .status-indicator:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 20px var(--shadow-color);
         }
 
         /* Social Links */
@@ -140,16 +133,14 @@
             padding: 8px 16px;
             border-radius: 5px;
             text-decoration: none;
-            text-align: center;
             transition: all 0.3s ease;
-            transform: translateY(0);
             box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
         .social-links a:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-            background-color: #00008b;
+            box-shadow: 0 5px 10px var(--shadow-color);
+            filter: brightness(1.1);
         }
 
         .social-links i {
@@ -166,21 +157,18 @@
         /* Project Boxes */
         .projects-row {
             display: flex;
-            flex-direction: row;
             flex-wrap: wrap;
+            gap: 20px;
         }
 
         .project-box {
             background: rgba(255, 255, 255, 0.1);
             padding: 25px 30px;
             border-radius: 12px;
-            margin: 20px 20px 20px 0;
             color: var(--text-color);
             font-size: 1.5rem;
-            font-family: 'Roboto', sans-serif;
             font-weight: 500;
             transition: all 0.3s ease;
-            cursor: pointer;
             width: 300px;
             height: 150px;
             display: flex;
@@ -190,17 +178,23 @@
             text-align: center;
             text-decoration: none;
             text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
-            transform: translateY(0);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
         }
 
         .project-box:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 20px var(--shadow-color);
         }
 
         .project-box.website {
             background: #3B9FDC;
+        }
+
+        /* Animations */
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
     </style>
 </head>
