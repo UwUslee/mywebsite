@@ -42,6 +42,7 @@
 
         [data-theme="light"] body {
             background-image: url('https://i.imgur.com/gTfej4F.jpeg');
+            background-position: center 10%;
         }
 
         /* Theme Toggle Button */
@@ -186,15 +187,15 @@
             box-shadow: 0 10px 20px var(--shadow-color);
         }
 
-        .project-box.website {
-            background: #3B9FDC;
-        }
-
         /* Animations */
         @keyframes gradient {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
+        }
+
+        .mastodon-verify {
+            display: none;
         }
     </style>
 </head>
@@ -216,7 +217,7 @@
             </a>
             <img src="https://api.statusbadges.me/badge/vscode/598134897265082398" alt="vscode" class="status-indicator">
         </div>
-
+            <a rel="me" href="https://mastodon.social/@girlpiss" class="mastodon-verify">Mastodon</a>
         <!-- Social Links -->
         <div class="social-links">
             <a href="https://github.com/UwUslee" target="_blank" class="github"><i class="fab fa-github"></i>GitHub</a>
@@ -231,7 +232,7 @@
     <div class="bottom-half">
         <h1 class="projects-title">Projects:</h1>
         <div class="projects-row">
-            <a href="https://github.com/UwUslee/mywebsite" target="_blank" class="project-box website">This Website</a>
+            <a href="https://github.com/UwUslee/mywebsite" target="_blank" class="project-box">This Website</a>
             <div class="project-box">Coming Soon</div>
         </div>
     </div>
