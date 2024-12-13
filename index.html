@@ -5,13 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>girlpiss.tech</title>
     
-    <!-- Favicon and External Resources -->
     <link rel="icon" type="image/gif" href="assets/images/icons/favicon.gif">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display&display=swap" rel="stylesheet">
     
     <style>
-        /* Theme Variables */
         :root {
             --bg-color: rgb(32, 34, 37);
             --text-color: white;
@@ -25,7 +23,6 @@
             --text-color: #333;
         }
 
-        /* Base Styles */
         body {
             margin: 0;
             padding: 0;
@@ -45,7 +42,6 @@
             background-position: center 10%;
         }
 
-        /* Theme Toggle Button */
         .theme-toggle {
             position: fixed;
             top: 20px;
@@ -65,7 +61,6 @@
             background-color: var(--hover-shadow);
         }
 
-        /* Layout Sections */
         .top-half {
             min-height: 50vh;
             display: flex;
@@ -86,7 +81,6 @@
             color: var(--text-color);
         }
 
-        /* Typography */
         h1, .projects-title {
             font-size: 4.0rem;
             font-weight: 900;
@@ -102,7 +96,6 @@
             font-size: 2.8rem;
         }
 
-        /* Status Container */
         .status-container {
             display: flex;
             gap: 10px;
@@ -120,7 +113,6 @@
             box-shadow: 0 10px 20px var(--shadow-color);
         }
 
-        /* Social Links */
         .social-links {
             margin-top: 20px;
             text-align: center;
@@ -148,14 +140,12 @@
             margin-right: 8px;
         }
 
-        /* Social Link Colors */
         .social-links .github { background-color: #333; }
         .social-links .twitter { background-color: #1da1f2; }
         .social-links .statsfm { background-color: #28a745; }
         .social-links .discord { background-color: #7289da; }
         .social-links .email { background-color: #d44638; }
 
-        /* Project Boxes */
         .projects-row {
             display: flex;
             flex-wrap: wrap;
@@ -187,7 +177,6 @@
             box-shadow: 0 10px 20px var(--shadow-color);
         }
 
-        /* Animations */
         @keyframes gradient {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -200,16 +189,13 @@
     </style>
 </head>
 <body>
-    <!-- Add this button right after the body tag -->
     <button class="theme-toggle" onclick="toggleTheme()">
         <i class="fas fa-moon"></i>
     </button>
 
-    <!-- Top Section -->
     <div class="top-half">
         <h1>Hi, I'm Simon</h1>
-        
-        <!-- Status Badges -->
+
         <div class="status-container">
             <img src="https://api.statusbadges.me/badge/status/598134897265082398" alt="status" class="status-indicator">
             <a href="https://api.statusbadges.me/openspotify/598134897265082398" target="_blank" rel="noopener">
@@ -218,7 +204,6 @@
             <img src="https://api.statusbadges.me/badge/vscode/598134897265082398" alt="vscode" class="status-indicator">
         </div>
             <a rel="me" href="https://mastodon.social/@girlpiss" class="mastodon-verify">Mastodon</a>
-        <!-- Social Links -->
         <div class="social-links">
             <a href="https://github.com/UwUslee" target="_blank" class="github"><i class="fab fa-github"></i>GitHub</a>
             <a href="https://x.com/girlpizz" target="_blank" class="twitter"><i class="fab fa-twitter"></i>Twitter</a>
@@ -228,7 +213,6 @@
         </div>
     </div>
 
-    <!-- Bottom Section -->
     <div class="bottom-half">
         <h1 class="projects-title">Projects:</h1>
         <div class="projects-row">
@@ -237,7 +221,6 @@
         </div>
     </div>
 
-    <!-- Add this script right before the closing body tag -->
     <script>
         function toggleTheme() {
             const body = document.documentElement;
