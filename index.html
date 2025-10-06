@@ -1,17 +1,275 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage - Kam3l</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-      html, body {
-        margin: 0;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+        :root {
+            --bg-color: #0d1117;
+            --primary-glass: rgba(255, 255, 255, 0.05);
+            --border-glass: rgba(255, 255, 255, 0.1);
+            --accent-color: #b392ac;
+            --text-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0d1117, #1c2333, #0d1117, #342a38);
+            background-size: 400% 400%;
+            animation: gradientBG 20s ease infinite;
+            color: var(--text-color);
+            margin: 0;
+            overflow: hidden;
+            cursor: default;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        #cursor-light {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(179, 146, 172, 0.09) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            transition: width 0.3s, height 0.3s;
+            z-index: 0;
+        }
+
+        #loader-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--bg-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease-in-out 0.5s, visibility 0.8s 0.5s;
+        }
+
+        #loader-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        #verification-message {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+        
+        #main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .container {
+            text-align: center;
+            opacity: 0;
+            animation: fadeInContainer 1s forwards 1s;
+        }
+        
+        @keyframes fadeInContainer {
+            to { opacity: 1; }
+        }
+        
+        .profile-header img {
+            width: 120px;
+            height: 120px;
+            animation: coin-spin 4s linear infinite;
+        }
+        
+        @keyframes coin-spin {
+            from {
+                transform: rotateY(0deg);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+
+        .profile-header h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin: 15px 0 40px 0;
+            letter-spacing: 3px;
+            background: linear-gradient(90deg, #ff007f, #ff5f00, #fffa00, #00ff87, #00c3ff, #7b00ff, #ff007f);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: textGradientShift 4s linear infinite;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.2), 
+                         0 0 25px rgba(255, 0, 127, 0.5), 
+                         0 0 50px rgba(0, 195, 255, 0.4);
+        }
+        
+        @keyframes textGradientShift {
+            to {
+                background-position: -200% center;
+            }
+        }
+
+        .tiles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 30px;
+            max-width: 550px;
+            margin: auto;
+        }
+
+        .tile {
+            background: var(--primary-glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: 15px;
+            padding: 35px;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInTile 0.6s forwards;
+        }
+        
+        .tile:nth-child(1) { animation-delay: 1.2s; }
+        .tile:nth-child(2) { animation-delay: 1.3s; }
+        .tile:nth-child(3) { animation-delay: 1.4s; }
+        .tile:nth-child(4) { animation-delay: 1.5s; }
+        
+        @keyframes fadeInTile {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .tile:hover {
+            transform: translateY(-8px) scale(1.02);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .tile i {
+            font-size: 48px;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        
+        .tile:hover i {
+            transform: scale(1.1);
+            color: #d1b1c9;
+        }
+
+        .tile h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0;
+        }
     </style>
-  </head>
-  <body>
-    <img src="https://cdn.discordapp.com/attachments/1230546883986980896/1364592850645422090/20250422_200046.jpg?ex=680a3ba0&is=6808ea20&hm=637ae3fb5d8bd9ded972dfa9d98c7195c1bafdb01a9986895e1d556f4398f46f&" alt="">
-  </body>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback" defer></script>
+</head>
+<body>
+    <div id="cursor-light"></div>
+
+    <div id="loader-overlay">
+        <div id="verification-message">Verifying...</div>
+        <div id="turnstile-verification-widget"></div>
+    </div>
+
+    <div id="main-content-wrapper" style="visibility:hidden;">
+        <div class="container">
+            <div class="profile-header">
+                <img src="emoji.png" alt="Spinning emoji">
+                <h1>Kam3l</h1>
+            </div>
+            <div class="tiles-grid">
+                <a href="https://steamcommunity.com/profiles/76561199050578760" target="_blank" class="tile">
+                    <i class="fab fa-steam"></i>
+                    <h2>Steam</h2>
+                </a>
+                <a href="https://x.com/Kam3l__" target="_blank" class="tile">
+                    <i class="fab fa-twitter"></i>
+                    <h2>Twitter (X)</h2>
+                </a>
+                <a href="specs.html" class="tile">
+                    <i class="fas fa-desktop"></i>
+                    <h2>PC Specs</h2>
+                </a>
+                <a href="idiot.html" class="tile">
+                    <i class="fas fa-question-circle"></i>
+                    <h2>???</h2>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('mousemove', e => {
+            const light = document.getElementById('cursor-light');
+            light.style.left = e.clientX + 'px';
+            light.style.top = e.clientY + 'px';
+        });
+
+        const loaderOverlay = document.getElementById('loader-overlay');
+        const mainContentWrapper = document.getElementById('main-content-wrapper');
+
+        function onTurnstileSuccess(token) {
+            if (loaderOverlay) loaderOverlay.classList.add('hidden');
+            if (mainContentWrapper) {
+                mainContentWrapper.style.visibility = 'visible';
+                document.body.style.overflow = 'auto';
+            }
+        }
+        
+        function onTurnstileError(errorCode) {
+            const msg = document.getElementById('verification-message');
+            if (msg) msg.innerHTML = '<p style="color: #ff6b6b;">Verification error. Please refresh the page.</p>';
+        }
+        
+        function onTurnstileExpired() {
+             const msg = document.getElementById('verification-message');
+             if (msg) msg.textContent = 'Verification expired. Please re-verify.';
+        }
+
+        function onloadTurnstileCallback() {
+            const widgetContainer = document.getElementById('turnstile-verification-widget');
+            if (typeof turnstile !== 'undefined' && widgetContainer) {
+                turnstile.render(widgetContainer, {
+                    sitekey: '0x4AAAAAAB5GR7wgOiZKLqYn',
+                    callback: onTurnstileSuccess,
+                    'error-callback': onTurnstileError,
+                    'expired-callback': onTurnstileExpired,
+                    theme: 'dark',
+                });
+            } else {
+                 const msg = document.getElementById('verification-message');
+                 if (msg) msg.innerHTML = '<p style="color: #ffa500;">Could not load verification module. Please refresh the page.</p>';
+            }
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98a5a8e80e3e3803',t:'MTc1OTc1ODk2MQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
