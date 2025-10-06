@@ -1,3 +1,3 @@
 ## Link
 
-[girlpiss.tech](https://girlpiss.tech)
+[slee.boo](https://slee.boo/)
