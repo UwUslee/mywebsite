@@ -1,0 +1,153 @@
+* { box-sizing: border-box; }
+
+/* Base theme vars + blob definitions with soft outline.
+   The admin panel will live-update --bg-blob1/2, so keep these variable names. */
+:root {
+  --bg:#0b1020; --panel:#0f172a; --muted:#b6c2ff0d; --text:#e2e8f0; --subtle:#94a3b8; --brand:#8b5cf6; --accent:#38bdf8; --ring:#94a3b833;
+
+  /* Default look: main glow + gentle white halo (two layers per blob var) */
+  --bg-blob1:
+    radial-gradient(1200px 800px at 10% -10%, rgba(109,40,217,0.06) 0%, rgba(109,40,217,0.06) 60%, transparent 72%),
+    radial-gradient(1200px 800px at 10% -10%, rgba(255,255,255,0.045) 80%, transparent 100%);
+  --bg-blob2:
+    radial-gradient(900px 600px at 110% 10%, rgba(2,132,199,0.06) 0%, rgba(2,132,199,0.06) 60%, transparent 72%),
+    radial-gradient(900px 600px at 110% 10%, rgba(255,255,255,0.045) 80%, transparent 100%);
+}
+
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f8fafc; --panel:#fff; --muted:#0f172a14; --text:#0f172a; --subtle:#475569; --brand:#6d28d9; --accent:#0284c7; --ring:#0f172a22;
+  }
+}
+
+html { min-height:100% }
+body {
+  min-height:100%;
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  /* Blob vars first (fixed), then solid base */
+  background: var(--bg-blob1), var(--bg-blob2), var(--bg);
+  background-repeat: no-repeat, no-repeat, repeat;
+  background-attachment: fixed, fixed, scroll;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Container */
+.wrap { max-width:880px; margin:0 auto; padding:40px 20px 64px }
+
+/* Header / avatar */
+header { display:grid; grid-template-columns:auto 1fr auto; gap:16px; align-items:center; margin-bottom:28px }
+.avatar {
+  width:64px; height:64px; border-radius:16px; background:var(--muted);
+  display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--subtle);
+  box-shadow:0 10px 30px #00000022
+}
+h1 { font-size:clamp(24px,3.2vw,36px); margin:0 0 2px; letter-spacing:.2px }
+.handle { color:var(--subtle); font-size:14px }
+.controls { display:flex; gap:10px }
+
+button.icon {
+  appearance:none; border:1px solid var(--muted); background:var(--panel); color:var(--text); cursor:pointer;
+  border-radius:12px; padding:10px 12px; display:flex; align-items:center; gap:8px; font-weight:600;
+  box-shadow:0 6px 20px #00000015; transition:transform .08s ease, box-shadow .2s ease, border-color .2s
+}
+button.icon:hover { transform:translateY(-1px); border-color:var(--ring); box-shadow:0 10px 28px #00000022 }
+button.icon:focus-visible { outline:0; box-shadow:0 0 0 6px var(--ring) }
+
+/* Layout sections */
+.grid { display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)) }
+section { margin-top:26px }
+h2 { font-size:14px; letter-spacing:.12em; text-transform:uppercase; color:var(--subtle); margin:22px 4px 10px }
+
+/* Cards */
+.card {
+  background: linear-gradient(180deg, var(--panel), color-mix(in srgb, var(--panel) 94%, black));
+  border:1px solid var(--muted); border-radius:16px; padding:14px 14px;
+  display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text);
+  transition: transform .09s ease, box-shadow .2s ease, border-color .2s ease;
+  box-shadow:0 6px 24px #00000018
+}
+.card:hover { transform:translateY(-1px); border-color:var(--ring); box-shadow:0 12px 36px #00000025 }
+.card:focus-visible { outline:0; box-shadow:0 0 0 6px var(--ring) }
+.card h3 { margin:0; font-size:16px }
+.card p { margin:2px 0 0; color:var(--subtle); font-size:13px }
+.card input[type="text"], .card textarea {
+  padding:8px; border-radius:10px; border:1px solid var(--muted);
+  background:var(--panel); width:100%; color:var(--text); resize:vertical
+}
+
+/* Admin tabs */
+.tabs { display:flex; gap:8px; margin:10px 0 12px; flex-wrap:wrap }
+.tab-btn { cursor:pointer; border:1px solid var(--muted); background:var(--panel); color:var(--text);
+  padding:8px 10px; border-radius:999px; font-size:12px }
+.tab-btn.active { border-color:var(--ring); box-shadow:0 0 0 2px var(--ring) }
+.tab-panel { display:none }
+.tab-panel.active { display:block }
+
+/* Pills — same design, lighter fill */
+.pill {
+  font-size:12px; padding:2px 8px; border-radius:999px; color:var(--text);
+  background: color-mix(in srgb, var(--brand) 35%, transparent);
+  border: 1px solid color-mix(in srgb, var(--brand) 45%, transparent);
+  text-decoration:none; display:inline-flex; align-items:center; justify-content:center;
+  transition: background .2s ease, border-color .2s ease, transform .1s ease
+}
+.pill:hover {
+  background: color-mix(in srgb, var(--brand) 50%, transparent);
+  border-color: var(--ring);
+  transform: translateY(-1px);
+}
+
+/* Rows / footer / a11y */
+.row { display:flex; gap:10px; flex-wrap:wrap }
+footer { margin-top:30px; color:var(--subtle); font-size:13px; display:flex; align-items:center; justify-content:space-between }
+footer a { color:var(--subtle) }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0 }
+
+/* Small screens */
+@media (max-width:460px){
+  header { grid-template-columns:48px 1fr }
+  .controls { grid-column:1 / -1 }
+  .avatar { width:48px; height:48px; border-radius:12px }
+}
+
+/* === Social Cards: Steam / Twitter style === */
+section#sec-social .card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #171a21;
+  border: 1px solid #2a2f38;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  text-decoration: none;
+  color: #dcdcdc;
+  transition: all 0.25s ease;
+}
+
+section#sec-social .card:hover {
+  background: #1b1e26;
+  border-color: #66c0f4;
+  box-shadow: 0 0 15px #66c0f433;
+  transform: translateY(-2px);
+}
+
+section#sec-social .card h3 {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #66c0f4;
+}
+
+section#sec-social .card p {
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  margin: 0;
+}
+
+/* Twitter hover accent */
+section#sec-social .card[href*="x.com"]:hover h3 {
+  color: #1da1f2;
+  border-color: #1da1f2;
+  box-shadow: 0 0 15px #1da1f233;
+}
