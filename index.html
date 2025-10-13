@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" style="--bg-blob1:radial-gradient(600px 1000px at -10% -10%, rgba(231, 158, 172, 0.09), transparent 100%); --bg-blob2:radial-gradient(1200px 800px at 120% 50%, rgba(14, 165, 233, 0.04), transparent 65%);">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>slee ~</title>
+  <meta name="description" content="xyre — personal links, contact info and self-hosted services." />
+
+  <link rel="icon" href="assets/" as="image">
+
+  <meta property="og:title" content="xyre ~ socials" />
+  <meta property="og:description" content="Personal links and contact info." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://slee.boo" />
+  <meta property="og:image" content="assets/image.jpg" />
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
+
+  <link rel="stylesheet" href="src/style.css">
+
+    <style id="theme-overrides">
+          @media (prefers-color-scheme: dark){
+        :root { --bg:#131313;--panel:#191919;--muted:#8899a61a;--text:#d7d7d7;--subtle:#ffffff;--brand:#E79EAC;--accent:#ff00ff;--ring:#E79EACFF; }
+      }
+          </style>
+ 
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img class="avatar" src="assets/image.jpg" aria-hidden="true">
+      <div>
+        <h1>slee</h1>
+              </div>
+    </header>
+
+            <section aria-labelledby="sec-contact">
+          <h2 id="sec-contact">Contact</h2>
+          <div class="row">
+                                                          <button class="pill email-pill" type="button" data-email="contact.judo978@simplelogin.fr" title="Copy email">
+                  E-Mail                </button>
+                                                                          <a class="pill" href="https://discord.com/users/598134897265082398" target="_blank" rel="noreferrer noopener" title="">Discord</a>
+                                                    </div>
+        </section>
+              <section aria-labelledby="sec-social">
+          <h2 id="sec-social">socials</h2>
+          <div class="grid">
+                                                            <a class="card" href="https://steamcommunity.com/id/cs2nuke/" target="_blank" rel="noreferrer noopener">
+                    <div><h3>Steam</h3><p>/id/cs2nuke</p></div>
+                  </a>
+                                                                                          <a class="card" href="https://steamcommunity.com/id/professionalfartsmeller/" target="_blank" rel="noreferrer noopener">
+                    <div><h3>Steam</h3><p>/id/professionalfartsmeller</p></div>
+                                                                                          <a class="card" href="https://x.com/girlpizz" target="_blank" rel="noreferrer noopener">
+                    <div><h3>Twitter</h3><p>@girlpizz</p></div>
+                  </a>
+                                                    </div>
+    <footer>
+                </footer>
+  </div>
+
+  <script>
+    async function copyTextSmart(text) {
+      try { if (navigator.clipboard && window.isSecureContext) { await navigator.clipboard.writeText(text); return true; } } catch(e){}
+      try { const ta=document.createElement('textarea'); ta.value=text; ta.setAttribute('readonly',''); ta.style.position='fixed'; ta.style.top='-9999px'; document.body.appendChild(ta); ta.select(); const ok=document.execCommand('copy'); ta.remove(); if(ok) return true; } catch(e){}
+      try { const span=document.createElement('span'); span.textContent=text; span.style.position='fixed'; span.style.left='-9999px'; document.body.appendChild(span); const sel=window.getSelection(); const r=document.createRange(); r.selectNodeContents(span); sel.removeAllRanges(); sel.addRange(r); const ok=document.execCommand('copy'); sel.removeAllRanges(); span.remove(); if(ok) return true; } catch(e){}
+      return false;
+    }
+    function flashPill(el,text='Copied',ms=900){const prev=el.textContent; el.textContent=text; el.classList.add('copied-flash'); setTimeout(()=>{el.textContent=prev; el.classList.remove('copied-flash');},ms);}
+    (function injectCSS(){const id='copy-pill-feedback'; if(document.getElementById(id))return; const s=document.createElement('style'); s.id=id; s.textContent='.copied-flash{outline:2px solid var(--accent);box-shadow:0 0 0 6px var(--ring);}'; document.head.appendChild(s);})();
+    document.addEventListener('click', async (e) => {
+      const btn = e.target.closest('.email-pill'); if (!btn) return;
+      let addr = (btn.dataset.email || '').trim();
+      if (!addr) { const txt=(btn.textContent||'').trim(); if (txt.includes('[at]')) addr = txt.replace(/\s*\[at\]\s*/i,'@'); }
+      if (!addr) return alert('No email found');
+      const ok = await copyTextSmart(addr); if (ok) flashPill(btn); else alert('Email: ' + addr);
+    });
+  </script>
+
+  <script type="application/ld+json">
+  </script>
+</body>
+</html>
