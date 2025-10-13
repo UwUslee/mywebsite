@@ -33,7 +33,7 @@
 <body>
   <div class="wrap">
     <header>
-      <img class="avatar" src="assets/image.jpg" aria-hidden="true">
+      <img class="avatar" id="avatar" src="assets/image.jpg" aria-hidden="true" style="cursor:pointer;">
       <div>
         <h1>slee</h1>
       </div>
@@ -89,6 +89,14 @@
       if (!addr) { const txt=(btn.textContent||'').trim(); if (txt.includes('[at]')) addr = txt.replace(/\s*\[at\]\s*/i,'@'); }
       if (!addr) return alert('No email found');
       const ok = await copyTextSmart(addr); if (ok) flashPill(btn); else alert('Email: ' + addr);
+    });
+
+    // Avatar click: play sound & refresh
+    const avatar = document.getElementById('avatar');
+    const clickSound = new Audio('assets/click.mp3');
+    avatar.addEventListener('click', () => {
+      clickSound.play().catch(()=>{});
+      setTimeout(() => location.reload(), 150);
     });
   </script>
 
