@@ -24,67 +24,100 @@
 
   <link rel="stylesheet" href="src/style.css">
 
-  <style id="theme-overrides">
-    @media (prefers-color-scheme: dark){
-      :root { --bg:#131313;--panel:#191919;--muted:#8899a61a;--text:#d7d7d7;--subtle:#ffffff;--brand:#E79EAC;--accent:#ff00ff;--ring:#E79EACFF; }
-    }
-  </style>
-</head>
-<style>
+  <style>
   #info-bar {
     position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    bottom: 0; left: 0; right: 0;
     background: rgba(0, 0, 0, 0.85);
     color: #fff;
     font-size: 12px;
     line-height: 1.6;
-    white-space: nowrap;
     overflow: hidden;
     z-index: 999999;
     backdrop-filter: blur(6px);
   }
-  #info-bar span {
+  #info-bar .scroll {
     display: inline-block;
-    padding: 4px 1rem;
-    animation: scroll 25s linear infinite;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation: scroll 40s linear infinite;
+    will-change: transform;
+    transform: translate3d(0,0,0);
   }
   @keyframes scroll {
-    from { transform: translateX(100%); }
-    to { transform: translateX(-100%); }
+    from { transform: translate3d(0,0,0); }
+    to { transform: translate3d(-100%,0,0); }
   }
   .blurred {
     filter: blur(5px);
-    transition: filter 0.2s ease;
+    transition: filter .2s ease;
     cursor: pointer;
   }
-  .blurred:hover,
-  .blurred:focus {
-    filter: none;
-  }
+  .blurred:hover, .blurred:focus { filter: none; }
 </style>
 
-<div id="info-bar"><span id="info-text">Gathering info...</span></div>
+<div id="info-bar">
+  <div class="scroll" id="info-text">Gathering info...</div>
+</div>
 
 <script>
 (async function(){
   const el = document.getElementById('info-text');
+
+  const ua = navigator.userAgent;
+  const platform = navigator.platform || 'unknown';
+  const lang = (navigator.languages || [navigator.language]).join(', ');
+  const online = navigator.onLine ? 'online' : 'offline';
+  const screenRes = `${screen.width}×${screen.height}`;
+  const viewport = `${window.innerWidth}×${window.innerHeight}`;
+  const colorDepth = screen.colorDepth;
+  const ratio = window.devicePixelRatio;
+  const cores = navigator.hardwareConcurrency ?? 'unknown';
+  const mem = navigator.deviceMemory ?? 'unknown';
+  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  const dnt = navigator.doNotTrack == "1" ? "enabled" : "disabled";
+  const cookie = navigator.cookieEnabled ? "enabled" : "disabled";
+  const conn = (navigator.connection?.effectiveType || 'unknown') +
+               (navigator.connection?.downlink ? ` (${navigator.connection.downlink}Mbps)` : '');
+  
+  let batteryInfo = 'unknown';
+  try {
+    if (navigator.getBattery) {
+      const b = await navigator.getBattery();
+      batteryInfo = `${Math.round(b.level*100)}%${b.charging ? ' (charging)' : ''}`;
+    }
+  } catch(e){}
+
   let ip = 'unknown', loc = 'unknown';
   try {
     const ipData = await fetch('https://api.ipify.org?format=json').then(r=>r.json());
     ip = ipData.ip;
     const locData = await fetch('https://ipapi.co/json/').then(r=>r.json());
-    loc = `${locData.city || ''}, ${locData.country_name || ''}`.trim();
+    loc = `${locData.city || ''}, ${locData.region || ''}, ${locData.country_name || ''}`.replace(/, ,/g, ',').trim();
   } catch(e){}
-  const browser = navigator.userAgent.split(') ')[0] + ')';
-  const screenInfo = `${screen.width}×${screen.height}`;
+
   el.innerHTML = `
     Public IP: <span class="blurred" tabindex="0">${ip}</span> |
-    Approx. location: <span class="blurred" tabindex="0">${loc}</span> |
-    Browser: ${browser} |
-    Screen: ${screenInfo}
+    Location: <span class="blurred" tabindex="0">${loc}</span> |
+    Platform: ${platform} |
+    Browser: ${ua} |
+    Screen: ${screenRes} |
+    Viewport: ${viewport} |
+    Color depth: ${colorDepth} |
+    Pixel ratio: ${ratio} |
+    Battery: ${batteryInfo} |
+    Timezone: ${tz} |
+    Language: ${lang} |
+    Online: ${online} |
+    Cookies: ${cookie} |
+    DNT: ${dnt} |
+    CPU cores: ${cores} |
+    RAM (GB): ${mem} |
+    Connection: ${conn}
   `;
+
+  // duplicate text for seamless loop
+  el.innerHTML += ' &nbsp;•&nbsp; ' + el.innerHTML;
 })();
 </script>
   <body>
