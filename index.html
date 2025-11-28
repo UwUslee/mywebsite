@@ -119,6 +119,32 @@
   el.innerHTML += ' &nbsp;•&nbsp; ' + el.innerHTML;
 })();
 </script>
+<div id="vanta-bg"></div>
+
+<style>
+  #vanta-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+  }
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.clouds.min.js"></script>
+<script>
+  VANTA.CLOUDS({
+    el: "#vanta-bg",
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00
+  });
+</script>
+
   <body>
   <div class="wrap">
     <header>
