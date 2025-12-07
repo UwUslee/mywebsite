@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>slee ~</title>
   <meta name="description" content="slee - personal links and contact info." />
-
   <link rel="icon" href="assets/favicon.png" as="image">
-
   <meta property="og:title" content="slee ~ links" />
   <meta property="og:description" content="Personal links and contact info." />
   <meta property="og:type" content="website" />
@@ -17,13 +15,10 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image" />
-
   <meta name="color-scheme" content="dark light" />
   <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
-
   <link rel="stylesheet" href="src/style.css">
-
   <style>
   #info-bar {
     position: fixed;
@@ -55,15 +50,12 @@
   }
   .blurred:hover, .blurred:focus { filter: none; }
 </style>
-
 <div id="info-bar">
   <div class="scroll" id="info-text">Gathering info...</div>
 </div>
-
 <script>
 (async function(){
   const el = document.getElementById('info-text');
-
   const ua = navigator.userAgent;
   const platform = navigator.platform || 'unknown';
   const lang = (navigator.languages || [navigator.language]).join(', ');
@@ -87,7 +79,6 @@
       batteryInfo = `${Math.round(b.level*100)}%${b.charging ? ' (charging)' : ''}`;
     }
   } catch(e){}
-
   let ip = 'unknown', loc = 'unknown';
   try {
     const ipData = await fetch('https://api.ipify.org?format=json').then(r=>r.json());
@@ -95,7 +86,6 @@
     const locData = await fetch('https://ipapi.co/json/').then(r=>r.json());
     loc = `${locData.city || ''}, ${locData.region || ''}, ${locData.country_name || ''}`.replace(/, ,/g, ',').trim();
   } catch(e){}
-
   el.innerHTML = `
     Public IP: <span class="blurred" tabindex="0">${ip}</span> |
     Location: <span class="blurred" tabindex="0">${loc}</span> |
@@ -115,20 +105,29 @@
     RAM (GB): ${mem} |
     Connection: ${conn}
   `;
-
   el.innerHTML += ' &nbsp;•&nbsp; ' + el.innerHTML;
 })();
 </script>
 </head>
   <body>
   <div class="wrap">
-    <header>
-      <img class="avatar" id="avatar" src="assets/image.jpg" aria-hidden="true" style="cursor:pointer;">
-      <div>
-        <h1>slee</h1>
-      </div>
+    <header style="display: flex; justify-content: center;">
+      <pre id="ascii-header" style="font-family: monospace; font-size: 10px; line-height: 1.1; text-align: center; margin: 1.5rem 0; cursor: pointer; color: #fff; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(30px) saturate(180%); -webkit-backdrop-filter: blur(30px) saturate(180%); border-radius: 16px; padding: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5); text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);">
+           .                  ,;        ,;        ,-.       _,---._ __  / \
+          ;W         i      f#i       f#i         /  )    .-'       `./ /   \
+         f#E        LE    .E#t      .E#t        (  (   ,'            `/    /|
+       .E#f        L#E   i#W,      i#W,          \  `-"             \'\   / |
+      iWW;        G#W.  L#D.      L#D.            `.              ,  \ \ /  |                                       
+     L##Lffi     D#K. :K#Wfff;  :K#Wfff;           /`.          ,'-`----Y   |
+    tLLG##L     E#K.  i##WLLLLt i##WLLLLt         (            ;        |   '
+      ,W#i    .E#E.    .E#L      .E#L             |  ,-.    ,-'         |  /
+     j#E.    .K#E        f#E:      f#E:           |  | (   |        hjw | /
+   .D#j     .K#D          ,WW;      ,WW;          )  |  \  `.___________|/
+  ,WK,     .W#G            .D#;      .D#;         `--'   `--'
+  EG.     :W##########Wt     tt        tt 
+  ,       :,,,,,,,,,,,,,.
+      </pre>
     </header>
-
     <section aria-labelledby="sec-contact">
       <h2 id="sec-contact">Contact</h2>
       <div class="row">
@@ -138,7 +137,6 @@
         <a class="pill" href="https://discord.com/users/598134897265082398" target="_blank" rel="noreferrer noopener" title="">Discord</a>
       </div>
     </section>
-
     <section aria-labelledby="sec-status">
       <h2 id="sec-status">Status</h2>
       <div class="grid">
@@ -153,7 +151,6 @@
         </div>
       </div>
     </section>
-
     <section aria-labelledby="sec-social">
       <h2 id="sec-social">socials</h2>
       <div class="grid">
@@ -177,11 +174,9 @@
         </a>
       </div>
     </section>
-
     <footer>
     </footer>
   </div>
-
   <script>
     async function copyTextSmart(text) {
       try { if (navigator.clipboard && window.isSecureContext) { await navigator.clipboard.writeText(text); return true; } } catch(e){}
@@ -198,14 +193,16 @@
       if (!addr) return alert('No email found');
       const ok = await copyTextSmart(addr); if (ok) flashPill(btn); else alert('Email: ' + addr);
     });
-
-    const avatar = document.getElementById('avatar');
+    
+    // ASCII header click: play sound & refresh
+    const asciiHeader = document.getElementById('ascii-header');
     const clickSound = new Audio('assets/click.mp3');
-    avatar.addEventListener('click', () => {
+    asciiHeader.addEventListener('click', () => {
       clickSound.play().catch(()=>{});
       setTimeout(() => location.reload(), 150);
     });
-
+    
+    // Update local time (Berlin timezone)
     function updateTime() {
       const now = new Date();
       const timeStr = now.toLocaleTimeString('en-US', { 
@@ -218,7 +215,8 @@
     }
     updateTime();
     setInterval(updateTime, 1000);
-
+    
+    // Fetch weather for Rosenheim
     async function updateWeather() {
       try {
         const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=47.85&longitude=12.13&current_weather=true');
@@ -231,7 +229,8 @@
     }
     updateWeather();
     setInterval(updateWeather, 300000); // Update every 5 minutes
-
+    
+    // Fetch Last.fm recent track
     async function updateLastFm() {
       try {
         const response = await fetch('https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=girlpiss&api_key=f4d4f85f16c27b08fe64219e1628c3e0&format=json&limit=1');
@@ -253,12 +252,10 @@
     updateLastFm();
     setInterval(updateLastFm, 60000); // Update every minute
   </script>
-
   <script type="application/ld+json">
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/oneko.js/1.0.0/oneko.min.js"></script>
 <div id="vanta-bg"></div>
-
 <style>
   #vanta-bg {
     position: fixed;
@@ -269,7 +266,6 @@
     z-index: -1;
   }
 </style>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.clouds.min.js"></script>
 <script>
@@ -283,4 +279,4 @@
   });
 </script>
   </body>
-</html>
+</html>	  
