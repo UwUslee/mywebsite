@@ -194,7 +194,6 @@
       const ok = await copyTextSmart(addr); if (ok) flashPill(btn); else alert('Email: ' + addr);
     });
     
-    // ASCII header click: play sound & refresh
     const asciiHeader = document.getElementById('ascii-header');
     const clickSound = new Audio('assets/click.mp3');
     asciiHeader.addEventListener('click', () => {
@@ -202,7 +201,6 @@
       setTimeout(() => location.reload(), 150);
     });
     
-    // Update local time (Berlin timezone)
     function updateTime() {
       const now = new Date();
       const timeStr = now.toLocaleTimeString('en-US', { 
@@ -216,7 +214,6 @@
     updateTime();
     setInterval(updateTime, 1000);
     
-    // Fetch weather for Rosenheim
     async function updateWeather() {
       try {
         const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=47.85&longitude=12.13&current_weather=true');
@@ -228,9 +225,8 @@
       }
     }
     updateWeather();
-    setInterval(updateWeather, 300000); // Update every 5 minutes
+    setInterval(updateWeather, 300000);
     
-    // Fetch Last.fm recent track
     async function updateLastFm() {
       try {
         const response = await fetch('https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=girlpiss&api_key=f4d4f85f16c27b08fe64219e1628c3e0&format=json&limit=1');
@@ -250,7 +246,7 @@
       }
     }
     updateLastFm();
-    setInterval(updateLastFm, 60000); // Update every minute
+    setInterval(updateLastFm, 60000);
   </script>
   <script type="application/ld+json">
   </script>
