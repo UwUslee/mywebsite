@@ -1,1 +1,125 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"/><title>***</title></head><body><h1>slee</h1><a><img src="https://i.imgur.com/nf0qkBk.jpeg"></a><h2>contact</h2><ul><li>dc: <a href="https://discord.com/users/598134897265082398">https://discord.com/users/598134897265082398</a></li><li>email: <a href="mailto:0.enforcer540@passinbox.com">0.enforcer540@passinbox.com</a></li></ul><h2>socials</h2><ul><li>steam 1: <a href="https://steamcommunity.com/id/cs2nuke/">https://steamcommunity.com/id/cs2nuke/</a></li><li>steam 2: <a href="https://steamcommunity.com/id/professionalfartsmeller/">https://steamcommunity.com/id/professionalfartsmeller/</a></li><li>last.fm: <a href="https://www.last.fm/user/girlpiss">https://www.last.fm/user/girlpiss</a></li><li>letterboxd: <a href="https://letterboxd.com/882/">https://letterboxd.com/882/</a></li></ul><h2>stats</h2><ul><li id="time"></li><li id="temp"></li><li id="lastfm"></li></ul><script>fetch("https://worldtimeapi.org/api/timezone/Europe/Berlin").then((r)=>r.json()).then((d)=>{document.getElementById("time").textContent=d.datetime.slice(11,16);});fetch("https://api.open-meteo.com/v1/forecast?latitude=48.1374&longitude=11.5755&current_weather=true").then((r)=>r.json()).then((d)=>{document.getElementById("temp").textContent=Math.round(d.current_weather.temperature)+"°";});fetch("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=girlpiss&api_key=f4d4f85f16c27b08fe64219e1628c3e0&format=json&limit=1").then((r)=>r.json()).then((d)=>{const t=d.recenttracks.track[0];document.getElementById("lastfm").textContent=t.artist["#text"]+" – "+t.name;});</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>***</title>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        #main {
+            flex: 1;
+            padding: 20px;
+        }
+        #sidebar {
+            padding: 20px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <h1>slee</h1>
+    <svg width="35" height="21" style="image-rendering: pixelated;">
+        <rect width="35" height="7" fill="#000000"/>
+        <rect width="35" height="7" y="7" fill="#DD0000"/>
+        <rect width="35" height="7" y="14" fill="#FFCE00"/>
+    </svg>
+    <svg width="35" height="21" style="image-rendering: pixelated;">
+        <rect width="35" height="3" fill="#078D70"/>
+        <rect width="35" height="3" y="3" fill="#26CEAA"/>
+        <rect width="35" height="3" y="6" fill="#98E8C1"/>
+        <rect width="35" height="3" y="9" fill="#FFFFFF"/>
+        <rect width="35" height="3" y="12" fill="#7BADE2"/>
+        <rect width="35" height="3" y="15" fill="#5049CC"/>
+        <rect width="35" height="3" y="18" fill="#3D1A78"/>
+    </svg>
+    <br>
+    <a>
+        <img src="https://i.imgur.com/nf0qkBk.jpeg" alt="Profile picture">
+    </a>
+    <h2>contact</h2>
+    <ul>
+        <li>dc: <a href="https://discord.com/users/598134897265082398" target="_blank">https://discord.com/users/598134897265082398</a></li>
+        <li>email: <a href="mailto:0.enforcer540@passinbox.com" target="_blank">0.enforcer540@passinbox.com</a></li>
+    </ul>
+    <h2>socials</h2>
+    <ul>
+        <li>steam 1: <a href="https://steamcommunity.com/id/cs2nuke/" target="_blank">https://steamcommunity.com/id/cs2nuke/</a></li>
+        <li>steam 2: <a href="https://steamcommunity.com/id/professionalfartsmeller/" target="_blank">https://steamcommunity.com/id/professionalfartsmeller/</a></li>
+        <li>last.fm: <a href="https://www.last.fm/user/girlpiss" target="_blank">https://www.last.fm/user/girlpiss</a></li>
+        <li>letterboxd: <a href="https://letterboxd.com/882/" target="_blank">https://letterboxd.com/882/</a></li>
+    </ul>
+    <h2>stats</h2>
+    <ul>
+        <li id="time"></li>
+        <li id="temp"></li>
+        <li id="lastfm"></li>
+    </ul>
+</div>
+<div id="sidebar">
+    <span id="theme" style="cursor: pointer;">white/dark</span>
+    <br>
+    <span>...mode</span>
+    <br><br>
+    <span class="color-option" data-color="blue" style="cursor: pointer;">blue</span>
+    <br>
+    <span class="color-option" data-color="red" style="cursor: pointer;">red</span>
+    <br>
+    <span class="color-option" data-color="green" style="cursor: pointer;">green</span>
+    <br>
+    <span class="color-option" data-color="purple" style="cursor: pointer;">purple</span>
+    <br>
+    <span class="color-option" data-color="orange" style="cursor: pointer;">orange</span>
+</div>
+<script>
+    const theme = document.getElementById("theme");
+    const colorOptions = document.querySelectorAll(".color-option");
+    let isBlack = false;
+
+    theme.onclick = function () {
+        if (isBlack) {
+            document.body.bgColor = "white";
+            document.body.style.color = "black";
+            isBlack = false;
+        } else {
+            document.body.bgColor = "black";
+            document.body.style.color = "white";
+            isBlack = true;
+        }
+    };
+
+    colorOptions.forEach(function(option) {
+        option.onclick = function() {
+            const color = this.getAttribute("data-color");
+            const allLinks = document.querySelectorAll("a");
+            allLinks.forEach(function(link) {
+                link.style.color = color;
+            });
+        };
+    });
+
+    fetch("https://worldtimeapi.org/api/timezone/Europe/Berlin")
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+            document.getElementById("time").textContent =
+                d.datetime.slice(11, 16);
+        });
+    fetch("https://api.open-meteo.com/v1/forecast?latitude=48.1374&longitude=11.5755&current_weather=true")
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+            document.getElementById("temp").textContent =
+                Math.round(d.current_weather.temperature) + "°";
+        });
+    fetch("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=girlpiss&api_key=f4d4f85f16c27b08fe64219e1628c3e0&format=json&limit=1")
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+            const t = d.recenttracks.track[0];
+            document.getElementById("lastfm").textContent =
+                t.artist["#text"] + " – " + t.name;
+        });
+</script>
+</body>
+</html>
