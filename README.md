@@ -1,3 +1,3 @@
 ## Link
 
-[slee.boo](https://slee.boo/)
+[sl00.net](https://sl00.net/)
