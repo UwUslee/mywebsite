@@ -53,6 +53,18 @@
         span[style*="cursor: pointer"]:hover {
             text-decoration: underline;
         }
+        .buttons-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 88px);
+            gap: 4px;
+            margin-top: 30px;
+        }
+        .button {
+            width: 88px;
+            height: 31px;
+            image-rendering: pixelated;
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -73,19 +85,71 @@
             <li>dc: <a href="https://discord.com/users/598134897265082398" target="_blank">https://discord.com/users/598134897265082398</a></li>
             <li>email: <a href="mailto:anything@sl00.net" target="_blank">anything@sl00.net</a></li>
         </ul>
-        <h2>socials</h2>
-        <ul>
-            <li>steam 1: <a href="https://steamcommunity.com/id/cs2nuke/" target="_blank">https://steamcommunity.com/id/cs2nuke/</a></li>
-            <li>steam 2: <a href="https://steamcommunity.com/id/professionalfartsmeller/" target="_blank">https://steamcommunity.com/id/professionalfartsmeller/</a></li>
-            <li>last.fm: <a href="https://www.last.fm/user/girlpiss" target="_blank">https://www.last.fm/user/girlpiss</a></li>
-            <li>letterboxd: <a href="https://letterboxd.com/882/" target="_blank">https://letterboxd.com/882/</a></li>
-        </ul>
         <h2>stats</h2>
         <ul>
             <li id="time"></li>
             <li id="temp"></li>
             <li id="lastfm"></li>
         </ul>
+        <div class="buttons-container">
+            <a href="https://jellyfin.org/" target="_blank">
+                <img src="buttons/jellyfin.gif" alt="Jellyfin" class="button">
+            </a>
+            <a href="https://www.videolan.org/vlc/" target="_blank">
+                <img src="buttons/vlc.png" alt="VLC" class="button">
+            </a>
+            <a href="https://www.qbittorrent.org/" target="_blank">
+                <img src="buttons/qbittorrent.png" alt="Don't forget to seed!" class="button">
+            </a>
+            <a href="https://mullvad.net/" target="_blank">
+                <img src="buttons/mullvad.png" alt="Mullvad" class="button">
+            </a>
+            <a href="https://www.foobar2000.org/" target="_blank">
+                <img src="buttons/foobar2000.png" alt="foobar2000" class="button">
+            </a>
+            <a href="https://kagi.com/" target="_blank">
+                <img src="buttons/kagi.png" alt="Kagi" class="button">
+            </a>
+            <a href="https://getpaint.net/" target="_blank">
+                <img src="buttons/pdn.gif" alt="paint.net" class="button">
+            </a>
+            <a href="https://www.thunderbird.net/" target="_blank">
+                <img src="buttons/thunderbird.gif" alt="Thunderbird" class="button">
+            </a>
+            <a href="https://bsky.app/" target="_blank">
+                <img src="buttons/bluesky.gif" alt="Bluesky" class="button">
+            </a>
+            <a href="https://matrix.org/" target="_blank">
+                <img src="buttons/matrix.png" alt="Matrix" class="button">
+            </a>
+            <a href="https://store.steampowered.com/" target="_blank">
+                <img src="buttons/steam.gif" alt="Play with STEAM" class="button">
+            </a>
+            <a href="https://www.docker.com/" target="_blank">
+                <img src="buttons/docker.png" alt="Powered by Docker" class="button">
+            </a>
+            <a href="https://rockylinux.org/" target="_blank">
+                <img src="buttons/rocky.png" alt="Rocky" class="button">
+            </a>
+            <a href="https://nixos.org/" target="_blank">
+                <img src="buttons/nixos.png" alt="powered by NixOS" class="button">
+            </a>
+            <a href="https://fedoraproject.org/" target="_blank">
+                <img src="buttons/fedora.png" alt="Fedora" class="button">
+            </a>
+            <a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank">
+                <img src="buttons/firefox.gif" alt="Firefox Now!" class="button">
+            </a>
+            <a href="https://kde.org/" target="_blank">
+                <img src="buttons/kde.gif" alt="KDE NOW!" class="button">
+            </a>
+            <a href="https://github.com/gorhill/uBlock" target="_blank">
+                <img src="buttons/ubo.png" alt="uBlock Origin Now!" class="button">
+            </a>
+            <a href="https://kinggizzardandthelizardwizard.com/" target="_blank">
+                <img src="buttons/kglw.png" alt="King Gizzard and the Lizard Wizard" class="button">
+            </a>
+        </div>
     </div>
     <div id="sidebar">
         <span id="theme" style="cursor: pointer;">white/dark</span>
