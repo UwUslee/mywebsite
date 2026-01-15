@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>projects - sl00.net</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 0;
+            padding: 40px 20px;
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            background-color: black;
+            color: white;
+            min-height: 100vh;
+        }
+        #container {
+            display: flex;
+            max-width: 800px;
+            width: 100%;
+        }
+        #main {
+            flex: 1;
+            padding-right: 40px;
+        }
+        #sidebar {
+            padding-left: 20px;
+            text-align: right;
+            border-left: 1px solid #333;
+        }
+        a {
+            color: purple;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        h1, h2 {
+            font-weight: 700;
+        }
+        span[style*="cursor: pointer"]:hover {
+            text-decoration: underline;
+        }
+        .nav-links {
+            margin-bottom: 20px;
+        }
+        .nav-links a {
+            margin-right: 10px;
+        }
+        .project {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="main">
+        <h1>/projects</h1>
+        <div class="nav-links">
+            <a href="index.html">[general]</a>
+            <a href="aboutme.html">[about me]</a>
+            <a href="projects.html">[projects]</a>
+        </div>
+        <div class="project">
+            <h2>simple image uploader/host</h2>
+            <p><a href="https://nailfile.yachts">nailfile.yachts</a> is an innovative way to host your most prized images, videos or even text files and share them with your friends</p>
+            <p>Features:</p>
+            <ul>
+                <li>100MB maximum file size</li>
+                <li>Incredible easter eggs</li>
+                <li>Many file formats: JPEG, PNG, GIF, WebP, MP4, WebM, MOV, TXT, MD</li>
+                <li>Fast, responsive experience powered by Hetzner™(the website doesnt really do anything)</li>
+                <li>Mesmerizingly butiful UI with interactive elements </li>
+            </ul> 
+            <p>I did this because i wanted to learn a bit more about PHP and Webhosting 👍</p>
+            <p><a href="https://github.com/tr1rd/nailfile.yachts" target="_blank">GitHub</a></p>
+             <img src="https://camo.githubusercontent.com/a33fe37ffc4be2bfae3e8bcc5094772a0db19c8ac93eaa98f1057251ba1f9d24/68747470733a2f2f6e61696c66696c652e7961636874732f6c6f676f2e706e67" alt="Logo" style="width:300px;height:300px;"> 
+        </div>
+        <div class="project">
+            <h2>this website</h2>
+            <p><a href="https://sl00.net">sl00.net</a> the website you are on</p>
+            <p>Not really a project just wanted something public under that domain</p>
+            <p>Notable features include:</p>
+            <ul>
+                <li>Cat that follows your cursor (stolen from <a href="https://github.com/adryd325/oneko.js/tree/main">this repo</a>)</li>
+                <li>Amazing black and white themes</li>
+                <li>You can change the color of the links!!!</li>
+            </ul> 
+            <p>Learned a bit of HTML and CSS with older versions of this site and am constantly adding/removing stuf from it</p>
+            <p><a href="https://github.com/tr1rd/mywebsite" target="_blank">GitHub</a></p>
+        </div>
+    </div>
+    <div id="sidebar">
+        <span id="theme" style="cursor: pointer;">white/dark</span>
+        <br>
+        <span>...mode</span>
+        <br><br>
+        <span class="color-option" data-color="blue" style="cursor: pointer;">blue</span>
+        <br>
+        <span class="color-option" data-color="red" style="cursor: pointer;">red</span>
+        <br>
+        <span class="color-option" data-color="green" style="cursor: pointer;">green</span>
+        <br>
+        <span class="color-option" data-color="purple" style="cursor: pointer;">purple</span>
+        <br>
+        <span class="color-option" data-color="orange" style="cursor: pointer;">orange</span>
+    </div>
+</div>
+<script>
+    const theme = document.getElementById("theme");
+    const colorOptions = document.querySelectorAll(".color-option");
+    let isBlack = true;
+
+    theme.onclick = function () {
+        if (isBlack) {
+            document.body.style.backgroundColor = "white";
+            document.body.style.color = "black";
+            isBlack = false;
+        } else {
+            document.body.style.backgroundColor = "black";
+            document.body.style.color = "white";
+            isBlack = true;
+        }
+    };
+
+    colorOptions.forEach(function(option) {
+        option.onclick = function() {
+            const color = this.getAttribute("data-color");
+            const allLinks = document.querySelectorAll("a");
+            allLinks.forEach(function(link) {
+                link.style.color = color;
+            });
+        };
+    });
+</script>
+</body>
+</html>
