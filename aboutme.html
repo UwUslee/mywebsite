@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>about me - sl00.net</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 0;
+            padding: 40px 20px;
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            background-color: black;
+            color: white;
+            min-height: 100vh;
+        }
+        #container {
+            display: flex;
+            max-width: 800px;
+            width: 100%;
+        }
+        #main {
+            flex: 1;
+            padding-right: 40px;
+        }
+        #sidebar {
+            padding-left: 20px;
+            text-align: right;
+            border-left: 1px solid #333;
+        }
+        a {
+            color: purple;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        h1, h2 {
+            font-weight: 700;
+        }
+        span[style*="cursor: pointer"]:hover {
+            text-decoration: underline;
+        }
+        .nav-links {
+            margin-bottom: 20px;
+        }
+        .nav-links a {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="main">
+        <h1>/aboutme</h1>
+        <div class="nav-links">
+            <a href="index.html">[general]</a>
+            <a href="aboutme.html">[about me]</a>
+            <a href="projects.html">[projects]</a>
+        </div>
+        <h2>who am i?</h2>
+        <p>Hey, my name is Simon and i am a <input size="10"/> from Germany</p>
+        
+        <h2>current interests</h2>
+        <p>- Learning about and using Unix/Linux operating systems, i have been using Linux only for Laptops for about 3 years and have been using it on Desktop on and off</p>
+        <ul>
+            <dd>So far ive used/tried:
+            <li>Arch <span style="color:#9aa0a6;">- i really like pacman and the aur helpers</span></li>
+            <li>Ubuntu <span style="color:#9aa0a6;">- it's Ubuntu</span></li>
+            <li>Mint <span style="color:#9aa0a6;">- managed to break</span></li>
+            <li>Fedora <span style="color:#9aa0a6;">- best "works out of the box" i've used but i still hate dnf</span></li>
+            <li>Void <span style="color:#9aa0a6;">- i guess?</span></li>
+            <li>EndeavorOS <span style="color:#9aa0a6;">- Arch but installer</span></li>
+            <li>POP-OS <span style="color:#9aa0a6;">- idk why this didn't work on my Laptop but i didn't really try to fix</span></li>
+            <li>Debian <span style="color:#9aa0a6;">- it's Debian</span></li>
+            <br>
+            <dd>Currently on <a href="https://en.wikipedia.org/wiki/Fedora_Linux">Fedora</a></dd>
+            <br>
+            </ul>
+        <p>- Learning random Computer stuff, especially ML/AI and math i don't understand in general</p>
+        <p>- Network infrastructure</p>
+        <p>- Backend development</p>
+        <p>- Basic Cybersecurity and Privacy</p>
+        <br>
+        <p>Also kinda interested in Movies, Geopolitics and History</p>
+    </div>
+    <div id="sidebar">
+        <span id="theme" style="cursor: pointer;">white/dark</span>
+        <br>
+        <span>...mode</span>
+        <br><br>
+        <span class="color-option" data-color="blue" style="cursor: pointer;">blue</span>
+        <br>
+        <span class="color-option" data-color="red" style="cursor: pointer;">red</span>
+        <br>
+        <span class="color-option" data-color="green" style="cursor: pointer;">green</span>
+        <br>
+        <span class="color-option" data-color="purple" style="cursor: pointer;">purple</span>
+        <br>
+        <span class="color-option" data-color="orange" style="cursor: pointer;">orange</span>
+    </div>
+</div>
+<script>
+    const theme = document.getElementById("theme");
+    const colorOptions = document.querySelectorAll(".color-option");
+    let isBlack = true;
+
+    theme.onclick = function () {
+        if (isBlack) {
+            document.body.style.backgroundColor = "white";
+            document.body.style.color = "black";
+            isBlack = false;
+        } else {
+            document.body.style.backgroundColor = "black";
+            document.body.style.color = "white";
+            isBlack = true;
+        }
+    };
+
+    colorOptions.forEach(function(option) {
+        option.onclick = function() {
+            const color = this.getAttribute("data-color");
+            const allLinks = document.querySelectorAll("a");
+            allLinks.forEach(function(link) {
+                link.style.color = color;
+            });
+        };
+    });
+</script>
+</body>
+</html>
