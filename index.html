@@ -310,17 +310,6 @@
             document.getElementById("lastfm").textContent =
                 t.artist["#text"] + " – " + t.name;
         });
-    <div id="markdown-content"></div>
-        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-        <script>
-            fetch('source.md')
-                .then(response => response.text())
-                .then(markdown => {
-                    document.getElementById('markdown-content').innerHTML =
-                        marked.parse(markdown);
-                })
-                .catch(error => console.error('Error loading markdown:', error));
-        </script>
 </script>
 </body>
 </html>
