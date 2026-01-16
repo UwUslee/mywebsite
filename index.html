@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sl00.net</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
@@ -35,6 +36,7 @@
             padding-left: 20px;
             text-align: right;
             border-left: 1px solid #333;
+            min-width: 120px;
         }
         a {
             color: purple;
@@ -50,8 +52,21 @@
             list-style-type: none;
             padding-left: 0;
         }
+        ul li {
+            word-break: break-word;
+        }
         span[style*="cursor: pointer"]:hover {
             text-decoration: underline;
+        }
+        .theme-toggle {
+            cursor: pointer;
+            padding: 8px;
+            margin: -8px;
+        }
+        .color-option {
+            cursor: pointer;
+            padding: 8px;
+            margin: -8px;
         }
         .buttons-container {
             display: grid;
@@ -70,11 +85,81 @@
         }
         .nav-links a {
             margin-right: 10px;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 15px;
+            }
+            
+            #container {
+                flex-direction: column;
+            }
+            
+            #main {
+                padding-right: 0;
+            }
+            
+            #sidebar {
+                border-left: none;
+                border-top: 1px solid #333;
+                padding-left: 0;
+                padding-top: 20px;
+                margin-top: 20px;
+                text-align: left;
+            }
+            
+            #main img {
+                max-width: 100%;
+            }
+            
+            .nav-links {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .nav-links a {
+                margin-right: 0;
+            }
+            
+            .buttons-container {
+                grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+                gap: 8px;
+            }
+            
+            h1 {
+                font-size: 1.5em;
+            }
+            
+            h2 {
+                font-size: 1.2em;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 15px 10px;
+                font-size: 14px;
+            }
+            
+            .buttons-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .button {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 88/31;
+            }
         }
     </style>
 </head>
 <body>
-      <script src="./oneko.js"></script>
+<script src="./oneko.js"></script>
 <div id="container">
     <div id="main">
         <h1>slee</h1>
@@ -161,19 +246,19 @@
         </div>
     </div>
     <div id="sidebar">
-        <span id="theme" style="cursor: pointer;">white/dark</span>
+        <span id="theme" class="theme-toggle">white/dark</span>
         <br>
         <span>...mode</span>
         <br><br>
-        <span class="color-option" data-color="blue" style="cursor: pointer;">blue</span>
+        <span class="color-option" data-color="blue">blue</span>
         <br>
-        <span class="color-option" data-color="red" style="cursor: pointer;">red</span>
+        <span class="color-option" data-color="red">red</span>
         <br>
-        <span class="color-option" data-color="green" style="cursor: pointer;">green</span>
+        <span class="color-option" data-color="green">green</span>
         <br>
-        <span class="color-option" data-color="purple" style="cursor: pointer;">purple</span>
+        <span class="color-option" data-color="purple">purple</span>
         <br>
-        <span class="color-option" data-color="orange" style="cursor: pointer;">orange</span>
+        <span class="color-option" data-color="orange">orange</span>
     </div>
 </div>
 <script>
@@ -203,11 +288,11 @@
         };
     });
 
-    fetch("https://timeapi.io/api/Time/current/zone?timeZone=Europe/Berlin")
+    fetch("https://worldtimeapi.org/api/timezone/Europe/Berlin")
         .then(function (r) { return r.json(); })
         .then(function (d) {
-            document.getElementById("time").textContent =
-                d.time || d.dateTime.slice(11, 16);
+            const time = d.datetime.slice(11, 16);
+            document.getElementById("time").textContent = time;
         })
         .catch(function() {
             document.getElementById("time").textContent = "—";
